@@ -1,33 +1,40 @@
-import React, { useState } from 'react';
-import Movie from './Movies/Movie';
-import MovieList from './Movies/MovieList';
+import { Route } from 'react-router-dom';
+import React, { Component } from 'react';
 import SavedList from './Movies/SavedList';
-import { Route } from "react-router-dom";
-
-const App = () => {
-    const [savedList, setSavedList] = useState([]);
-
-    const addToSavedList = movie => {
-        setSavedList([...savedList, movie]);
-    };
-
-    return ( <
+import MovieList from './Movies/MovieList';
+import Movie from './Movies/Movie'
+export default class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+            savedList: []
+        }
+    }
+    addToSavedList = (movie) => {
+        console.log(this.state.savedList)
+        const savedList = this.state.savedList;
+        savedList.push(movie);
+        this.setState({ savedList });
+    }
+    render() {
+        return ( <
             div >
             <
-            SavedList list = { savedList }
-            /> { / * < div > Replace this Div with your Routes < /div>*/
-        } <
-        Route exact path = "/"
-    component = { MovieList }
-    /> <
-    Route path = "/movies/:id"
-    render = {
-        props => < Movie addToSavedList = { addToSavedList } {...props }
-        />} / >
-
-        <
-        /div>
-    );
-};
-
-export default App;
+            SavedList list = { this.state.savedList }
+            /> <
+            Route exact path = "/"
+            component = { MovieList }
+            /> <
+            Route path = "/movies/:id"
+            render = {
+                (props) => {
+                    return ( < Movie {...props }
+                        addToSavedList = { this.addToSavedList }
+                        />)
+                    }
+                }
+                /> <
+                /div>
+            )
+        }
+    }
