@@ -31,19 +31,17 @@ const Movie = (props) => {
     }
 
     const { title, director, metascore, stars } = movie;
-    return ( <
-        div className = "save-wrapper" >
+    return ( < div className = "save-wrapper" >
         <
         div className = "movie-card" >
         <
-        h2 > { title } < /h2> <
-        div className = "movie-director" >
-        Director: < em > { director } < /em> < /
-        div > <
+        h2 > { title } < /h2> <div className = "movie-director" >
+        Director: < em > { director } < /em></div >
+        <
         div className = "movie-metascore" >
-        Metascore: < strong > { metascore } < /strong> < /
-        div > <
-        h3 > Actors < /h3>
+        Metascore: < strong > { metascore } < /strong>  <
+        /div> <h3> Actors </h
+        3 >
 
         {
             stars.map(star => ( <
@@ -51,10 +49,7 @@ const Movie = (props) => {
                 className = "movie-star" > { star } <
                 /div>
             ))
-        } <
-        /div> <
-        div className = "save-button" > Save < /div> < /
-        div >
+        } < /div> <div className = "save-button" > Save </div > < /div>
     );
 }
 
