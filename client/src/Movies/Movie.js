@@ -34,10 +34,10 @@ const Movie = (props) => {
     return ( <div className = "save-wrapper">
         <div className = "movie-card">
         <h2> { title } </h2> <div className = "movie-director">
-        Director: <em> { director } </em></div>
+        Director: <i> { director } </i></div>
         <div className = "movie-metascore" >
-        Metascore: <strong > { metascore } </strong>  
-        </div> <h3> Actors </h3>
+        Metascore: <h2> { metascore } </h2>  
+        </div> <h2> Actors </h2>
 
         {
             stars.map(star => ( <div key = { star }
