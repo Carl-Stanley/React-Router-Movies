@@ -15,7 +15,7 @@ const Movie = (props) => {
                 setMovie(response.data);
             })
             .catch(error => {
-                console.error(error);
+                console.error("Another Error", error);
             });
 
     }, []);
